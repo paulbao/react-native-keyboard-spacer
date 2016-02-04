@@ -58,8 +58,10 @@ class KeyboardSpacer extends React.Component {
     updateKeyboardSpace(frames) {
         if (!frames.endCoordinates)
             return;
+        const { reserveHeight } = this.props;
+
         this.setState({
-            keyboardSpace: frames.endCoordinates.height,
+            keyboardSpace: frames.endCoordinates.height - (reserveHeight ? reserveHeight : 0),
             isKeyboardOpened: true
         });
     }
